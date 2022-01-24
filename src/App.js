@@ -1,17 +1,17 @@
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-// import About from './components/About';
+import About from './components/About';
 import Textbox from './components/Textbox';
 import { useState } from 'react';
 import Alert from './components/Alert';
 import React from "react";
 
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 
 function App() {
@@ -73,21 +73,18 @@ function App() {
     <>
 
 
-      {/* <Route path="/" element={ <Alert alert={alert} />} /> */}
 
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
 
         <Navbar SiteName={'Khalil'} About={'myAbout'} mode={mode} togglemode={togglemode} togglemode1={togglemode1} />
         <Alert alert={alert} />
-        <Textbox mode={mode} showalert={showalert} />
-        {/* <About /> */}
 
-        {/* <Routes> */}
-          {/* <Route path="/" element={<Textbox mode={mode} showalert={showalert} />} />
-          <Route path="About" element={<About />} /> */}
+        <Routes>
+          <Route path="/" element={<Textbox mode={mode} showalert={showalert} />} />
+          <Route path="About" element={<About mode={mode} />} />
 
-        {/* </Routes> */}
-      {/* </BrowserRouter> */}
+        </Routes>
+      </BrowserRouter>
 
     </>
   );
