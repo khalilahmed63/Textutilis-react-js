@@ -16,8 +16,7 @@ import {
 
 function App() {
 
-  const [mode, setmode] = useState('light');
-  const [bodycolor, setbodycolor] = useState();
+  // const [bodycolor, setbodycolor] = useState();
   const [alert, setalert] = useState(null);
 
   const showalert = (message, type) => {
@@ -30,44 +29,46 @@ function App() {
     }, 2000);
   }
 
+const bgcolorremover =()=>{
+  document.body.classList.remove('light');
+  document.body.classList.remove('dark');
+  document.body.classList.remove('primary');
+  document.body.classList.remove('success');
+  document.body.classList.remove('warning');
+  document.body.classList.remove('danger');
+}
 
-  document.body.style.backgroundColor = (bodycolor);
-
-  const togglemode = () => {
-    if (mode !== 'dark') {
-      setmode('dark');
-      setbodycolor('#1e0e23');
-      showalert(" Dark mode is Enabled", "success");
-      document.title = ('TextUtils Darkmode Enabled')
-
-      // document.getElementById("green-btn-triger").click(); 
-
-
+  const togglemode = (cls) => {
+    console.log(cls);
+    if(cls==='light'){
+      bgcolorremover();
+      document.body.classList.add('bg-light'); 
     }
-    else {
-      setmode('light');
-      setbodycolor('white');
-      showalert(" Light mode is Enabled", "success");
-
-      document.title = ('TextUtils Lightmode Enabled')
+    else if(cls==='dark'){
+      // bgcolorremover();
+      document.body.classList.add('bg-dark'); 
     }
+    else if(cls==='primary'){
+      // bgcolorremover();
+      document.body.classList.add('bg-primary'); 
+    }
+    else if(cls==='success'){
+      // bgcolorremover();
+      document.body.classList.add('bg-success'); 
+    }
+    else if(cls==='warning'){
+      // bgcolorremover();
+      document.body.classList.add('bg-warning'); 
+    }
+    else if(cls==='danger'){
+      // bgcolorremover();
+      document.body.classList.add('bg-danger'); 
+    }
+
+  
   }
 
-  const togglemode1 = () => {
-    if (mode !== 'green') {
-      setmode('green');
-      setbodycolor('#073110');
-      showalert(" Green mode is Enabled", "success");
-      document.title = ('TextUtils Lightmode Enabled')
-
-    }
-    else {
-      setmode('light');
-      setbodycolor('white');
-      showalert(" Green mode is Disabled", "success");
-      document.title = ('TextUtils Lightmode Disable')
-    }
-  }
+ 
 
   return (
     <>
@@ -76,12 +77,12 @@ function App() {
 
       <BrowserRouter>
 
-        <Navbar SiteName={'Khalil'} About={'myAbout'} mode={mode} togglemode={togglemode} togglemode1={togglemode1} />
+        <Navbar SiteName={'Khalil'} About={'myAbout'}  togglemode={togglemode}  />
         <Alert alert={alert} />
 
         <Routes>
-          <Route path="/" element={<Textbox mode={mode} showalert={showalert} />} />
-          <Route path="About" element={<About mode={mode} />} />
+          <Route path="/" element={<Textbox  showalert={showalert} />} />
+          <Route path="About" element={<About  />} />
 
         </Routes>
       </BrowserRouter>
