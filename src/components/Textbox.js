@@ -5,27 +5,27 @@ export default function Textbox(props) {
     const uppercase = () => {
         let newtext = text.toUpperCase();
         settext(newtext);
-        props.showalert("UpperCase converted ", "success");
+        props.showalert(" UpperCase converted ", "success");
 
     }
     const lowercase = () => {
         let newtext = text.toLowerCase();
         settext(newtext);
-        props.showalert("lowCase converted ", "success");
+        props.showalert(" LowCase converted ", "success");
 
     }
 
     const copytext = () => {
         let text = document.getElementById('textbox');
         navigator.clipboard.writeText(text.value);
-        props.showalert("Copied to Clipboard ", "success");
+        props.showalert(" Copied to Clipboard ", "success");
         // text.getSelection().removeAllRanges();
 
     }
 
     const cleartext = () => {
         settext('');
-        props.showalert("Text removed ", "success");
+        props.showalert(" Text removed ", "success");
 
     }
 
@@ -33,12 +33,11 @@ export default function Textbox(props) {
     const handleextraspaces = () => {
         let newtext = text.split(/[ ]+/);
         settext(newtext.join(' '));
-        props.showalert("Extra Space removed ", "success");
+        props.showalert(" Extra Space removed ", "success");
     }
 
     const handleonchange = (event) => {
         settext(event.target.value);
-        console.log('text entered');
     }
     return <div className={`container mt-3 text-${props.mode === 'light' ? 'dark' : 'light'}`}>
 
