@@ -40,4 +40,10 @@
 
 #textbox{
   border-radius: 10px;
+  border: 2px solid rgb(20, 41, 226);
+}
+
+#previewtext{
+  border: none ;
+  border-radius: 10px;
 }

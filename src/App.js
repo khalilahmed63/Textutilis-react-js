@@ -16,7 +16,8 @@ import {
 
 function App() {
 
-  // const [bodycolor, setbodycolor] = useState();
+  const [mode, setmode] = useState('light');
+  const [bodycolor, setbodycolor] = useState();
   const [alert, setalert] = useState(null);
 
   const showalert = (message, type) => {
@@ -29,46 +30,44 @@ function App() {
     }, 2000);
   }
 
-const bgcolorremover =()=>{
-  document.body.classList.remove('light');
-  document.body.classList.remove('dark');
-  document.body.classList.remove('primary');
-  document.body.classList.remove('success');
-  document.body.classList.remove('warning');
-  document.body.classList.remove('danger');
-}
 
-  const togglemode = (cls) => {
-    console.log(cls);
-    if(cls==='light'){
-      bgcolorremover();
-      document.body.classList.add('bg-light'); 
-    }
-    else if(cls==='dark'){
-      // bgcolorremover();
-      document.body.classList.add('bg-dark'); 
-    }
-    else if(cls==='primary'){
-      // bgcolorremover();
-      document.body.classList.add('bg-primary'); 
-    }
-    else if(cls==='success'){
-      // bgcolorremover();
-      document.body.classList.add('bg-success'); 
-    }
-    else if(cls==='warning'){
-      // bgcolorremover();
-      document.body.classList.add('bg-warning'); 
-    }
-    else if(cls==='danger'){
-      // bgcolorremover();
-      document.body.classList.add('bg-danger'); 
-    }
+  document.body.style.backgroundColor = (bodycolor);
 
-  
+  const togglemode = () => {
+    if (mode !== 'dark') {
+      setmode('dark');
+      setbodycolor('#1e0e23');
+      showalert(" Dark mode is Enabled", "success");
+      document.title = ('TextUtils Darkmode Enabled')
+
+      // document.getElementById("green-btn-triger").click(); 
+
+
+    }
+    else {
+      setmode('light');
+      setbodycolor('white');
+      showalert(" Light mode is Enabled", "success");
+
+      document.title = ('TextUtils Lightmode Enabled')
+    }
   }
 
- 
+  const togglemode1 = () => {
+    if (mode !== 'green') {
+      setmode('green');
+      setbodycolor('#073110');
+      showalert(" Green mode is Enabled", "success");
+      document.title = ('TextUtils Lightmode Enabled')
+
+    }
+    else {
+      setmode('light');
+      setbodycolor('white');
+      showalert(" Green mode is Disabled", "success");
+      document.title = ('TextUtils Lightmode Disable')
+    }
+  }
 
   return (
     <>
@@ -77,12 +76,12 @@ const bgcolorremover =()=>{
 
       <BrowserRouter>
 
-        <Navbar SiteName={'Khalil'} About={'myAbout'}  togglemode={togglemode}  />
+        <Navbar SiteName={'Khalil'} About={'myAbout'} mode={mode} togglemode={togglemode} togglemode1={togglemode1} />
         <Alert alert={alert} />
 
         <Routes>
-          <Route path="/" element={<Textbox  showalert={showalert} />} />
-          <Route path="About" element={<About  />} />
+          <Route path="/" element={<Textbox mode={mode} showalert={showalert} />} />
+          <Route path="About" element={<About mode={mode} />} />
 
         </Routes>
       </BrowserRouter>
