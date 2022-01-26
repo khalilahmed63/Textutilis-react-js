@@ -53,7 +53,7 @@ export default function Textbox(props) {
 
 
         <h3 className='mt-2'>Your text summary</h3>
-        <p>{text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length}  Characters</p>
+        <p>{text.split(/\s/).filter((element) => { return element.length !== 0 }).length} words and {text.length}  Characters</p>
         <p>{0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} minutes reading time required</p>
         <h2>preview:</h2>
       

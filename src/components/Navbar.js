@@ -24,12 +24,12 @@ export default function Navbar(props) {
           </ul>
 
           <div className="d-flex flex-wrap ">
-            <div className="rounded bg-light mx-1 my-1 border border-primary" onClick={() => { props.togglemode('light') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
-            <div className="rounded bg-dark mx-1 my-1 border border-primary" onClick={() => { props.togglemode('dark') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
-            <div className="rounded bg-primary mx-1 my-1 border border-primary" onClick={() => { props.togglemode('primary') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
-            <div className="rounded bg-success mx-1 my-1 border border-primary" onClick={() => { props.togglemode('success') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
-            <div className="rounded bg-danger mx-1 my-1 border border-primary" onClick={() => { props.togglemode('danger') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
-            <div className="rounded bg-warning mx-1 my-1 border border-primary" onClick={() => { props.togglemode('warning') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+            <div className="rounded bg-light mx-1 my-1 border border-primary" onClick={() => { props.togglemode2('light') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+            <div className="rounded bg-dark mx-1 my-1 border border-primary" onClick={() => { props.togglemode2('dark') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+            <div className="rounded bg-primary mx-1 my-1 border border-primary" onClick={() => { props.togglemode2('primary') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+            <div className="rounded bg-success mx-1 my-1 border border-primary" onClick={() => { props.togglemode2('success') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+            <div className="rounded bg-danger mx-1 my-1 border border-primary" onClick={() => { props.togglemode2('danger') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+            <div className="rounded bg-warning mx-1 my-1 border border-primary" onClick={() => { props.togglemode2('warning') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
           </div>
 
         </div>

@@ -53,22 +53,35 @@ function App() {
     }
   }
 
-  const togglemode1 = () => {
-    if (mode !== 'green') {
-      setmode('green');
-      setbodycolor('#073110');
-      showalert(" Green mode is Enabled", "success");
-      document.title = ('TextUtils Lightmode Enabled')
-
-    }
-    else {
-      setmode('light');
+  const togglemode2=(cls)=>{
+    
+    if(cls==='light'){
       setbodycolor('white');
-      showalert(" Green mode is Disabled", "success");
-      document.title = ('TextUtils Lightmode Disable')
+      setmode('light');
+    }
+    else if(cls==='dark'){
+      setbodycolor('#292b2c');
+      setmode('dark');
+    }
+    else if(cls==='primary'){
+      setbodycolor('#0275d8');
+      setmode('dark');
+    }
+    else if(cls==='success'){
+      setbodycolor('#42ba96');
+      setmode('dark');
+    }
+    else if(cls==='danger'){
+      setbodycolor('#d9534f');
+      setmode('dark');
+    }
+    else if(cls==='warning'){
+      setbodycolor('#f0ad4e');
+      setmode('dark');
     }
   }
-
+  
+  
   return (
     <>
 
@@ -76,7 +89,7 @@ function App() {
 
       <BrowserRouter>
 
-        <Navbar SiteName={'Khalil'} About={'myAbout'} mode={mode} togglemode={togglemode} togglemode1={togglemode1} />
+        <Navbar SiteName={'Khalil'} About={'myAbout'} mode={mode} togglemode={togglemode}  togglemode2={togglemode2} />
         <Alert alert={alert} />
 
         <Routes>

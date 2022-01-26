@@ -47,3 +47,7 @@
   border: none ;
   border-radius: 10px;
 }
+
+.accordion-button::after {
+  filter: invert(1);
+}
